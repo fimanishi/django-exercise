@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import homepage.views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', homepage.views.homepage, name="homepage"),
+    url(r'^animals$', homepage.views.animals, name="animals"),
+    url(r'^darkside$', homepage.views.darkside, name="darkside"),
+    url(r'^meddle$', homepage.views.meddle, name="meddle"),
 ]

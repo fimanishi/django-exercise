@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<ul>
+  <li><a href="{% url 'homepage' %}">Homepage</a></li>
+</ul>
+    <h1>{{ name }}</h1>
+    <h2>
+      {% if name2 %}
+      {{ name2 | upper }}
+      {% else %}
+      default
+      {% endif %}
+    </h2>
+    <ul>
+      {% for n in numbers %}
+      <li>{{ n }}</li>
+      {% endfor %}
+    </ul>
+    <img src="{% static "images/animals.jpeg" %}" alt= "animals" />
+{% endblock %}
