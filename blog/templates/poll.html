@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+Poll: {{ poll.poll_id }}
+{% endblock %}
+
+{% block content %}
+
+<h2>Question</h2>
+<p>{{ poll.question }}</p>
+<form action="./" method="POST">
+  {% csrf_token %}
+  {% for choice in choices %}
+
+  <input type="radio" name="answer" value="{{ choice.id }}"/>{{ choice.answer }}<br />
+  {% endfor %}
+  <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

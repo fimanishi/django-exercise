@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 import homepage.views
+import blog.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,10 @@ urlpatterns = [
     url(r'^animals$', homepage.views.animals, name="animals"),
     url(r'^darkside$', homepage.views.darkside, name="darkside"),
     url(r'^meddle$', homepage.views.meddle, name="meddle"),
+    url(r'^blog/(\S+)/(\S+)/$', blog.views.blog_post),
+    url(r'^blog/(\S+)/$', blog.views.blog_index),
+    url(r'^poll/(\S+)/results/$', blog.views.results),
+    url(r'^poll/(\S+)/$', blog.views.poll_index),
+
+
 ]
